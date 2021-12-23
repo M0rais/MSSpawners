@@ -7,12 +7,20 @@ import net.minecraft.world.entity.ai.goal.GoalSelector;
 import org.bukkit.craftbukkit.v1_17_R1.entity.CraftEntity;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.LivingEntity;
+import org.bukkit.entity.Mob;
+import pt.morais.spawner.adapter.BrainEntity;
 
 import java.lang.reflect.Field;
 
 public class AIHandler implements pt.morais.spawner.adapter.mob.AIHandler {
     @Override
     public void removeAI(Entity entity) {
+        if (BrainEntity.isPresent(entity.getType())) {
+            Mob mob = (Mob) entity;
+            mob.setAware(false);
+            return;
+        }
+
         LivingEntity livingEntity = (LivingEntity) entity;
         PathfinderMob c = (PathfinderMob) ((CraftEntity) livingEntity).getHandle();
         try {

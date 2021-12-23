@@ -33,7 +33,7 @@ public class MSSpawners extends JavaPlugin implements Listener {
     @Override
     public void onEnable() {
         this.configLoader = new ConfigLoader(this);
-        new VersionLoader();
+        new VersionLoader(this);
         getServer().getPluginManager().registerEvents(this, this);
     }
 
