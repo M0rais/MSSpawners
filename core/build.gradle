@@ -1,0 +1,41 @@
+repositories {
+    mavenLocal()
+}
+
+dependencies {
+    compileOnly('org.projectlombok:lombok:1.18.22',)
+    annotationProcessor 'org.projectlombok:lombok:1.18.22'
+
+    compileOnly 'org.spigotmc:spigot:1.8.8-R0.1-SNAPSHOT'
+    implementation 'com.github.cryptomorin:XSeries:8.5.0.1'
+
+    implementation project(':versions:adapter')
+
+    implementation project(':versions:v1_8_R3')
+    implementation project(':versions:V1_9_R2')
+    implementation project(':versions:V1_10_R1')
+    implementation project(':versions:V1_11_R1')
+    implementation project(':versions:V1_12_R1')
+    implementation project(':versions:V1_13_R2')
+    implementation project(':versions:V1_14_R1')
+    implementation project(':versions:V1_15_R1')
+    implementation project(':versions:V1_16_R3')
+    implementation project([path: ':versions:V1_17_R1', configuration: 'reobf'])
+    implementation project([path: ':versions:V1_18_R1', configuration: 'reobf'])
+    //implementation project('versions:V1_18_R1', 'reobf')
+}
+
+processResources {
+    filesMatching("**/plugin.yml") {
+        expand "version": project.version
+    }
+}
+
+buildscript {
+    apply plugin: 'com.github.johnrengelman.shadow'
+}
+
+shadowJar {
+    exclude 'server*'
+    archiveFileName.set('MSSpawners-' + project.version + '.' + archiveExtension.get())
+}

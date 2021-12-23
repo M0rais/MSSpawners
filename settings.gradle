@@ -1,0 +1,36 @@
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+        maven {
+            url = "https://papermc.io/repo/repository/maven-public/"
+        }
+    }
+}
+
+rootProject.name = 'MSSpawners'
+include 'core'
+include 'versions:adapter'
+findProject(':versions:adapter')?.name = 'adapter'
+include 'versions:v1_8_R3'
+findProject(':versions:v1_8_R3')?.name = 'v1_8_R3'
+include 'versions:V1_9_R2'
+findProject(':versions:V1_9_R2')?.name = 'V1_9_R2'
+include 'versions:V1_10_R1'
+findProject(':versions:V1_10_R1')?.name = 'V1_10_R1'
+include 'versions:V1_11_R1'
+findProject(':versions:V1_11_R1')?.name = 'V1_11_R1'
+include 'versions:V1_12_R1'
+findProject(':versions:V1_12_R1')?.name = 'V1_12_R1'
+include 'versions:V1_13_R2'
+findProject(':versions:V1_13_R2')?.name = 'V1_13_R2'
+include 'versions:V1_14_R1'
+findProject(':versions:V1_14_R1')?.name = 'V1_14_R1'
+include 'versions:V1_15_R1'
+findProject(':versions:V1_15_R1')?.name = 'V1_15_R1'
+include 'versions:V1_16_R3'
+findProject(':versions:V1_16_R3')?.name = 'V1_16_R3'
+include 'versions:V1_17_R1'
+findProject(':versions:V1_17_R1')?.name = 'V1_17_R1'
+include 'versions:V1_18_R1'
+findProject(':versions:V1_18_R1')?.name = 'V1_18_R1'
+

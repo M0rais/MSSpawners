@@ -1,0 +1,5 @@
+name: MSSpawners
+version: 1.0.0
+main: pt.morais.spawner.MSSpawners
+author: DMMS
+api-version: 1.13
