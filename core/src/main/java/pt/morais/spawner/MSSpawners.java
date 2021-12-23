@@ -43,6 +43,7 @@ public class MSSpawners extends JavaPlugin implements Listener {
         return creatureSpawner.getSpawnedType();
     }
 
+
     @EventHandler
     public void onJoin(PlayerJoinEvent event) {
         event.getPlayer().getInventory().clear();
@@ -77,7 +78,7 @@ public class MSSpawners extends JavaPlugin implements Listener {
         System.out.println("int = " + nbtSpawner.getInteger("b"));
         System.out.println("double = " + nbtSpawner.getDouble("c"));
         System.out.println("list = " + nbtSpawner.getAllListValues("d"));
-        nbtSpawner.changeSpawnRate(3, 5);
+        nbtSpawner.changeSpawnRate((short)1, (short)2);
         System.out.println(nbtSpawner);
     }
 

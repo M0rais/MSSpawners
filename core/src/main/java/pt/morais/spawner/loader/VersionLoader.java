@@ -100,7 +100,7 @@ public class VersionLoader {
             NBTSpawnerAdapter.setInstance(new pt.morais.spawner.adapter.v1_18_R1.spawner.NBTSpawnerAdapter());
             NBTItemAdapter.setInstance(new pt.morais.spawner.adapter.v1_18_R1.item.NBTItemAdapter());
             AIHandlerAdapter.setInstance(new pt.morais.spawner.adapter.v1_18_R1.entity.AIHandlerAdapter());
-            MSSpawners.setType(EntityType.valueOf("VINDICATOR"));
+            MSSpawners.setType(EntityType.valueOf("PIGLIN"));
         } catch (NoClassDefFoundError ignored) {
         }
     }

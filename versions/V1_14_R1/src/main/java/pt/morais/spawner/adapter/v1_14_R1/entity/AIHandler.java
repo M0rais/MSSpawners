@@ -7,6 +7,8 @@ import net.minecraft.server.v1_14_R1.PathfinderGoalSelector;
 import org.bukkit.craftbukkit.v1_14_R1.entity.CraftEntity;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.LivingEntity;
+import org.bukkit.entity.Mob;
+import pt.morais.spawner.adapter.BrainEntity;
 
 import java.lang.reflect.Field;
 
