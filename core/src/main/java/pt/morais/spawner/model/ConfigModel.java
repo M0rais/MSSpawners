@@ -1,6 +1,5 @@
 package pt.morais.spawner.model;
 
-import lombok.Data;
 import lombok.Getter;
 import org.bukkit.configuration.InvalidConfigurationException;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -10,6 +9,9 @@ import pt.morais.spawner.MSSpawners;
 import java.io.File;
 import java.io.IOException;
 
+/**
+ * This class handles creation of custom configs
+ */
 @Getter
 public class ConfigModel {
 
@@ -36,6 +38,9 @@ public class ConfigModel {
 
     }
 
+    /**
+     * Saves the current config
+     */
     public void saveConfig() {
         try {
             configuration.save(file);
@@ -44,6 +49,9 @@ public class ConfigModel {
         }
     }
 
+    /**
+     * Reloads the config
+     */
     public void reloadConfig() {
         try {
             configuration.load(file);
@@ -52,6 +60,9 @@ public class ConfigModel {
         }
     }
 
+    /**
+     * Save and reload config
+     */
     public void saveAndReload() {
         saveConfig();
         reloadConfig();
