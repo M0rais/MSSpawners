@@ -5,6 +5,8 @@ import lombok.Getter;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+import pt.morais.spawner.adapter.item.NBTItem;
+import pt.morais.spawner.adapter.item.NBTItemAdapter;
 import pt.morais.spawner.exception.UnknownItemException;
 import pt.morais.spawner.util.ColorUtil;
 import pt.morais.spawner.util.Placeholder;
@@ -18,7 +20,7 @@ import java.util.Optional;
 @Getter
 public class ItemBuilder {
 
-    private final ItemStack item;
+    private ItemStack item;
 
     /**
      * Primary constructor
@@ -36,6 +38,16 @@ public class ItemBuilder {
         Optional<XMaterial> xMaterial = XMaterial.matchXMaterial(material);
         if (!xMaterial.isPresent()) throw new UnknownItemException(material);
         this.item = xMaterial.get().parseItem();
+    }
+
+    /**
+     * This method defines the amount
+     * @param amount Item amount
+     * @return ItemBuilder
+     */
+    public ItemBuilder amount(int amount) {
+        item.setAmount(amount);
+        return this;
     }
 
     /**
@@ -108,5 +120,48 @@ public class ItemBuilder {
         return this;
     }
 
+    /**
+     * This method adds a string nbt tag to the item
+     * @param key Nbt tag key
+     * @param value Nbt tag value
+     * @return ItemBuilder
+     */
+    public ItemBuilder addNBTTag(String key, String value) {
+        NBTItem nbtItem = NBTItemAdapter.getInstance().getNBTItem(item);
+        nbtItem.saveValue(key, value);
+        this.item = nbtItem.getItem();
+        return this;
+    }
+
+    /**
+     * This method adds a int nbt tag to the item
+     * @param key Nbt tag key
+     * @param value Nbt tag value
+     * @return ItemBuilder
+     */
+    public ItemBuilder addNBTTag(String key, int value) {
+        NBTItem nbtItem = NBTItemAdapter.getInstance().getNBTItem(item);
+        nbtItem.saveValue(key, value);
+        this.item = nbtItem.getItem();
+        return this;
+    }
+
+    /**
+     * Returns a string from the nbt key
+     * @param key Nbt tag key
+     * @return String
+     */
+    public String getNBTTag(String key) {
+        return NBTItemAdapter.getInstance().getNBTItem(item).getValue(key);
+    }
+
+    /**
+     * Returns a int from the nbt key
+     * @param key Nbt tag key
+     * @return String
+     */
+    public int getIntNBTTag(String key) {
+        return NBTItemAdapter.getInstance().getNBTItem(item).getIntValue(key);
+    }
 
 }

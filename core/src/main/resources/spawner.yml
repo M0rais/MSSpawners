@@ -1,1 +1,12 @@
 spawner-item:
+  name: "&eSpawner of %type%"
+  lore:
+    - "&6&lINFORMATION"
+    - "&r"
+    - " &6* &7First owner: &f%owner%"
+    - " &6* &7Last break: &f%break%"
+    - " &6* &7Speed level: &f%speed%"
+    - " &6* &7Drops level: &f%drops%"
+    - "&r"
+    - "&eRight-Click to place."
+    - "&e&o(Open spawner menu to stack)"

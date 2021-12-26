@@ -10,7 +10,8 @@ import lombok.Getter;
 @AllArgsConstructor
 public class Placeholder {
 
-    private final String key, value;
+    private final String key;
+    private final Object value;
 
     /**
      * This method changes the key by the value
@@ -18,7 +19,7 @@ public class Placeholder {
      * @return Text with placeholders
      */
     public String apply(String s) {
-        return s.replace(key, value);
+        return s.replace(key, value.toString());
     }
 
 }

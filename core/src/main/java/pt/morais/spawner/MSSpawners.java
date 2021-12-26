@@ -6,12 +6,16 @@ import org.bukkit.plugin.java.JavaPlugin;
 import pt.morais.spawner.exception.UnknownItemException;
 import pt.morais.spawner.loader.ConfigLoader;
 import pt.morais.spawner.loader.VersionLoader;
+import pt.morais.spawner.manager.MobManager;
+import pt.morais.spawner.manager.SpawnerManager;
 import pt.morais.spawner.util.ColorUtil;
 
 @Getter
 public class MSSpawners extends JavaPlugin {
 
     private ConfigLoader configLoader;
+    private MobManager mobManager;
+    private SpawnerManager spawnerManager;
 
     @Override
     public void onEnable() {

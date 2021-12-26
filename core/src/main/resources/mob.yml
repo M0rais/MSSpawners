@@ -1,0 +1,9 @@
+custom-names:
+  not-found:
+    name: "&e%type%"
+    stack: "%name% &7x%stack% | %drops%"
+    tier: "&7Default"
+  ZOMBIE:
+    name: "&aZombie"
+    stack: "%name% &7x%stack% | %drops%"
+    tier: "&fDead"
